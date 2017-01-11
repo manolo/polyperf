@@ -63,7 +63,7 @@ console._perfEnd = function(info) {
     console.timeEnd('perf');
   }
   document.title = time.toFixed(1) + 'ms: ' + document.title;
-  if (window.top !== window) {
-    window.top.postMessage({time: time + 'ms', info: info}, '*');
+  if (window.parent !== window) {
+    window.parent.postMessage({time: time + 'ms', info: info}, '*');
   }
 };
